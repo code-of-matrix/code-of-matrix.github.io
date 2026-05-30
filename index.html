@@ -9,15 +9,38 @@
         body { background-color: #070b12; color: #e2e8f0; font-family: 'Montserrat', sans-serif; line-height: 1.8; margin: 0; padding: 0; }
         .container { max-width: 800px; margin: 0 auto; padding: 20px; }
         h1, h2 { font-family: 'Playfair Display', serif; color: #ffd700; text-align: center; }
-        .section { background: rgba(23, 31, 51, 0.8); padding: 30px; border-radius: 20px; margin-bottom: 25px; border-left: 5px solid #ffd700; }
-        .btn { display: block; width: 100%; max-width: 350px; margin: 30px auto; padding: 18px; background: #25d366; color: #000; text-align: center; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.1rem; }
+        .section { background: rgba(23, 31, 51, 0.8); padding: 30px; border-radius: 20px; margin-bottom: 25px; border-left: 5px solid #ffd700; overflow: hidden; position: relative; }
+        .btn { display: block; width: 100%; max-width: 350px; margin: 30px auto; padding: 18px; background: #25d366; color: #000; text-align: center; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: 0.3s; position: relative; z-index: 2; }
+        .btn:hover { box-shadow: 0 0 20px rgba(37, 211, 102, 0.5); transform: translateY(-2px); }
         .gold { color: #ffd700; font-weight: bold; }
-       .nav-bar { display: flex; justify-content: center; gap: 20px; margin: 20px auto; padding: 20px; background: rgba(23, 31, 51, 0.8); border-radius: 50px; border: 1px solid #334155; max-width: 300px; }
-        .nav-item { width: 60px; height: 60px; border-radius: 50%; background: #171f33; display: flex; align-items: center; justify-content: center; text-decoration: none; color: #ffd700; font-size: 10px; text-align: center; border: 2px solid #ffd700; transition: 0.3s; }
-        .nav-item:hover { background: #ffd700; color: #000; }
+        
+        /* Стили навигации */
+        .nav-bar { display: flex; justify-content: center; gap: 20px; margin: 20px auto; padding: 20px; background: rgba(23, 31, 51, 0.95); border-radius: 50px; border: 1px solid #334155; max-width: 300px; position: sticky; top: 10px; z-index: 100; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+        .nav-item { width: 60px; height: 60px; border-radius: 50%; background: #171f33; display: flex; align-items: center; justify-content: center; text-decoration: none; color: #ffd700; font-size: 10px; text-align: center; border: 2px solid #ffd700; transition: 0.3s; font-weight: bold; }
+        .nav-item:hover { background: #ffd700; color: #000; transform: scale(1.1); }
+
+        /* Стили изображений */
+        .img-hero { background-image: url('matrix_hero.png'); background-size: cover; background-position: center; border: none; padding: 80px 40px; text-align: center; color: #fff; }
+        .img-hero h1, .img-hero p { position: relative; z-index: 2; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
+        .img-about { width: 100%; border-radius: 20px; margin-bottom: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+        .img-navigator { width: 100%; border-radius: 20px; margin: 20px 0; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+        .img-spheres { width: 100%; border-radius: 20px; margin: 25px 0; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+        .img-calendar { width: 100%; border-radius: 20px; margin: 20px 0; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+        .reviewer-icon { width: 50px; height: 50px; border-radius: 50%; background-image: url('matrix_reviewer.png'); background-size: cover; margin-right: 15px; border: 2px solid #00f2fe; }
+
+        /* Гриды для списков */
+        .spheres-list, .emotions-grid { list-style: none; padding: 0; margin: 0; }
+        .spheres-item, .grid-item { background: #171f33; padding: 20px; border-radius: 15px; border-left: 4px solid #00f2fe; margin-bottom: 20px; transition: 0.3s; position: relative; overflow: hidden; }
+        .spheres-item:hover, .grid-item:hover { transform: translateX(5px); background: #1a253f; }
+        .spheres-item strong, .grid-item h3 { color: #00f2fe; }
+        
+        .emotions-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .emotions-img { width: 100%; border-radius: 10px; margin-bottom: 10px; }
+
     </style>
 </head>
 <body>
+
     <div class="nav-bar">
         <a href="#about" class="nav-item">ОБО МНЕ</a>
         <a href="#reviews" class="nav-item">ОТЗЫВЫ</a>
@@ -27,15 +50,16 @@
     <div class="container">
         <h1>CODE OF MATRIX</h1>
 
-        <div class="section" style="background: linear-gradient(180deg, #101827 0%, #171f33 100%); border: none;">
-            <h1 style="font-size: 2.2rem; color: #ffd700;">Цифровая Психология Сюцай — это ключ к расшифровке кода вашей судьбы.</h1>
-            <p><strong>Дата рождения — это личный код каждого человека. В этих цифрах скрыты все ваши природные таланты и ответы на вопросы, которые стоят перед вами сейчас.</strong></p>
-            <p>Хватит жить в режиме случайных событий! Узнайте, почему вы ходите по кругу и где скрыт ваш истинный потенциал. Я создаю для вас монументальный цифровой паспорт ручной работы, который станет вашим личным навигатором на всю жизнь, переводя вас от хаоса к ясности и жизни по вашим собственным правилам.</p>
-            <a href="https://wa.me/34614339937" class="btn" style="background: #ffd700;">Запись на Консультацию</a>
+        <div class="section img-hero">
+            <h1 style="font-size: 2.8rem; color: #ffd700;">Цифровая Психология Сюцай — это ключ к расшифровке кода вашей судьбы.</h1>
+            <p style="font-size: 1.2rem; max-width: 600px; margin: 0 auto;"><strong>Дата рождения — это личный код каждого человека. В этих цифрах скрыты все ваши природные таланты и ответы на вопросы, которые стоят перед вами сейчас.</strong></p>
+            <p style="max-width: 600px; margin: 20px auto;">Хватит жить в режиме случайных событий! Узнайте, почему вы ходите по кругу и где скрыт ваш истинный потенциал. Я создаю для вас монументальный цифровой паспорт ручной работы, который станет вашим личным навигатором на всю жизнь, переводя вас от хаоса к ясности и жизни по вашим собственным правилам.</p>
+            <a href="https://wa.me/34614339937" class="btn" style="background: #ffd700; color: #000;">Запись на Консультацию</a>
         </div>
 
         <div class="section" id="about">
-            Моя личная история</h2>
+            <img src="matrix_history.png" alt="Моя личная история" class="img-about">
+            <h2>Моя личная история</h2>
             <p>Я Людмила — дипломированный цифровой психолог, сертифицированный мастер международной числовой науки Сюцай, эксперт по трансформации сознания и взлому личных кризисов.</p>
             <p>«Несколько лет назад я сама оказалась в точке, знакомой многим. Внешне всё могло казаться нормальным, но внутри росло жгучее ощущение тупика. Я без конца задавала себе вопросы: „Туда ли я иду? Почему я совершаю одни и те же ошибки? Где мой финансовый прорыв, неиссякаемый ресурс и энергия?“ Я искала ответы повсюду, пока в мою жизнь не пришла цифровая психология Сюцай.</p>
             <p>Когда я рассчитала своё Число Сознания и Миссию, у меня буквально открылись глаза. Я увидела, в каких иллюзиях жила, почему сливала силы и где на самом деле были заблокированы мои деньги и душевное спокойствие. Я внедрила эти знания, полностью перестроила своё мышление и кардинально поправила собственную жизнь!</p>
@@ -48,155 +72,195 @@
         </div>
 
         <div class="section" id="about-syutsay">
-    <h2>Что такое Цифровая психология Сюцай?</h2>
-    <p>Классическая психология часто предполагает долгие годы встреч. Сюцай — это другой подход. Это <strong>точный навигатор</strong> для вашего ума и глубокий аудит вашей жизни по дате рождения. Это не гадания, а математика, которая объясняет, почему вы думаете так, как думаете, и где вы теряете свою энергию.</p>
-    
-    <div style="margin: 20px 0;">
-        <p><strong>О чем говорят ваши цифры:</strong></p>
-        <ul style="list-style: none; padding: 0;">
-            <li style="margin-bottom: 15px;">• <strong>Число Сознания (день рождения):</strong> Ваше «Я». Это то, чего вы хотите на самом деле. Это знание помогает перестать требовать от мира невозможного и направить энергию на реальный успех.</li>
-            <li style="margin-bottom: 15px;">• <strong>Миссия (сумма всех цифр):</strong> То, как вы действуете в социуме. Вы поймете, почему иногда цели не достигаются, и как подружить ваши желания с реальными действиями.</li>
-            <li style="margin-bottom: 15px;">• <strong>Личная матрица:</strong> Это точный расчет ваших природных качеств, который показывает, почему события в жизни идут именно так. Как только вы понимаете логику своих действий, вы меняете свое поведение, и следом за вами меняется всё, что происходит вокруг.</li>
-        </ul>
-    </div>
+            <h2>Что такое Цифровая психология Сюцай?</h2>
+            <p>Классическая психология часто предполагает долгие годы встреч. Сюцай — это другой подход. Это <strong>точный навигатор</strong> для вашего ума и глубокий аудит вашей жизни по дате рождения. Это не гадания, а математика, которая объясняет, почему вы думаете так, как думаете, и где вы теряете свою энергию.</p>
+            
+            <img src="matrix_navigator.png" alt="Навигатор сознания Сюцай" class="img-navigator">
+            
+            <div style="margin: 20px 0;">
+                <p><strong>О чем говорят ваши цифры:</strong></p>
+                <ul class="spheres-list">
+                    <li class="spheres-item">• <strong>Число Сознания (день рождения):</strong> Ваше «Я». Это то, чего вы хотите на самом деле. Это знание помогает перестать требовать от мира невозможного и направить энергию на реальный успех.</li>
+                    <li class="spheres-item">• <strong>Миссия (сумма всех цифр):</strong> То, как вы действуете в социуме. Вы поймете, почему иногда цели не достигаются, и как подружить ваши желания с реальными действиями.</li>
+                    <li class="spheres-item">• <strong>Личная матрица:</strong> Это точный расчет ваших природных качеств, который показывает, почему события в жизни идут именно так. Как только вы понимаете логику своих действий, вы меняете свое поведение, и следом за вами меняется всё, что происходит вокруг.</li>
+                </ul>
+            </div>
 
-    <p><strong>Почему это работает?</strong><br> Сюцай основан на древней мудрости дисциплины ума (Раджа-Йога). Наша задача — убрать из головы претензии к близким и обиды. Когда в голове становится спокойней и ясней, деньги и возможности начинают приходить в вашу жизнь сами собой. Трансформация вашего Вектора Эго — это ключ к гармоничным отношениям с собой и окружающими.</p>
-    
-    <div style="background: #171f33; padding: 20px; border-radius: 15px; border-left: 4px solid #00f2fe; margin-top: 20px;">
-        <p style="margin: 0;"><strong>Хватит блуждать в темноте!</strong> Мой главный ресурс — это глубокий, ручной расчет вашей матрицы. Это не шаблон из интернета, а конкретная карта действий лично для вас.</p>
-    </div>
-    
-        <div class="section">
-            <h2>Вектор ЭГО, Кризис 33 лет и Отношения</h2>
-            <p>Мы работаем с Вектором Эго, который держит человека в ловушке. Мы готовимся к кризису 33 лет, примиряя Число Сознания и Миссию. Мы настраиваем отношения, убирая неоправданные ожидания и претензии к близким через знание их программы.</p>
+            <p><strong>Почему это работает?</strong><br> Сюцай основан на древней мудрости дисциплины ума (Раджа-Йога). Наша задача — убрать из головы претензии к близким и обиды. Когда в голове становится спокойней и ясней, деньги и возможности начинают приходить в вашу жизнь сами собой. Трансформация вашего Вектора Эго — это ключ к гармоничным отношениям с собой и окружающими.</p>
+            
+            <div style="background: #171f33; padding: 20px; border-radius: 15px; border-left: 4px solid #00f2fe; margin-top: 20px;">
+                <p style="margin: 0;"><strong>Хватит блуждать в темноте!</strong> Мой главный ресурс — это глубокий, ручной расчет вашей матрицы. Это не шаблон из интернета, а конкретная карта действий лично для вас.</p>
+            </div>
+            
+            <div class="section" style="margin-top: 25px;">
+                <h2>Вектор ЭГО, Кризис 33 лет и Отношения</h2>
+                <p>Мы работаем с Вектором Эго, который держит человека в ловушке. Мы готовимся к кризису 33 лет, примиряя Число Сознания и Миссию. Мы настраиваем отношения, убирая неоправданные ожидания и претензии к близким через знание их программы.</p>
+            </div>
         </div>
 
         <div class="section" id="spheres">
             <h2>С какими сферами жизни я работаю</h2>
             <p>Я провожу фундаментальный аудит вашей матрицы, чтобы выявить, где именно происходит утечка вашей энергии. Вы можете прийти ко мне с любым из этих запросов:</p>
             
+            <img src="matrix_spheres.png" alt="Сферы жизни Сюцай" class="img-spheres">
+            
             <div style="margin-top: 25px;">
-                <ul style="list-style: none; padding: 0;">
-                    <li style="margin-bottom: 20px; background: #171f33; padding: 15px; border-radius: 10px; border-left: 4px solid #00f2fe;">
+                <ul class="spheres-list">
+                    <li class="spheres-item">
                         <strong>Личность и реализация:</strong> Вскрываем «темные» и «светлые» грани вашего Я. Раскрываем природные таланты и силу Рода, которую вы пока не используете на 100%.
                     </li>
-                    <li style="margin-bottom: 20px; background: #171f33; padding: 15px; border-radius: 10px; border-left: 4px solid #00f2fe;">
+                    <li class="spheres-item">
                         <strong>Духовность и Род:</strong> Ваша главная миссия и негативные родовые сценарии. Я покажу, что блокирует ваше счастье и как исправить эти программы раз и навсегда.
                     </li>
-                    <li style="margin-bottom: 20px; background: #171f33; padding: 15px; border-radius: 10px; border-left: 4px solid #00f2fe;">
+                    <li class="spheres-item">
                         <strong>Деньги и финансовый поток:</strong> Хватит копировать чужие стратегии. Я расшифрую ваш личный финансовый код, укажу на действия, прописанные вам Свыше, и уберу денежные блоки.
                     </li>
-                    <li style="margin-bottom: 20px; background: #171f33; padding: 15px; border-radius: 10px; border-left: 4px solid #00f2fe;">
+                    <li class="spheres-item">
                         <strong>Отношения и любовь:</strong> Анализ ошибок в коммуникации. Что изменить в себе, чтобы стать ценной для партнера и построить гармоничный союз.
                     </li>
-                    <li style="margin-bottom: 20px; background: #171f33; padding: 15px; border-radius: 10px; border-left: 4px solid #00f2fe;">
+                    <li class="spheres-item">
                         <strong>Личностный и профессиональный кризис:</strong> Помогу найти вашу «Роковую ошибку» — ту самую из прошлого, которая разрушает текущие успехи, если её не осознать.
                     </li>
-                    <p>Моя специализация — глубинная трансформация вашего состояния и выход из повторяющихся жизненных сценариев. Ко мне приходят, когда кажется, что все перепробовано, но результат стоит на месте.</p>
-    
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-        <div style="background: #171f33; padding: 15px; border-radius: 10px;">
-            <h3>Эмоции и состояние</h3>
-            <ul>
-                <li>Страхи, тревожность и постоянный стресс.</li>
-                <li>Уныние, апатия, лень, откладывание жизни на «потом».</li>
-                <li>Эмоциональное выгорание, потеря себя и внутренних смыслов.</li>
-                <li>Неуверенность в себе, низкая самооценка.</li>
-            </ul>
-        </div>
-        <div style="background: #171f33; padding: 15px; border-radius: 10px;">
-            <h3>Жизнь и реализация</h3>
-            <ul>
-                <li>Повторяющиеся жизненные сценарии (одни и те же ошибки).</li>
-                <li>Вопросы самореализации и поиск истинного предназначения.</li>
-                <li>Принятие сложных, судьбоносных решений.</li>
-                <li>Переживание разводов, предательства, измен.</li>
-            </ul>
+                </ul>
+                <p>Моя специализация — глубинная трансформация вашего состояния и выход из повторяющихся жизненных сценариев. Ко мне приходят, когда кажется, что все перепробовано, но результат стоит на месте.</p>
+            
+            <div class="emotions-grid">
+                <div class="grid-item">
+                    <img src="matrix_emotions.png" alt="Эмоции и состояние" class="emotions-img">
+                    <h3>Эмоции и состояние</h3>
+                    <ul>
+                        <li>Страхи, тревожность и постоянный стресс.</li>
+                        <li>Уныние, апатия, лень, откладывание жизни на «потом».</li>
+                        <li>Эмоциональное выгорание, потеря себя и внутренних смыслов.</li>
+                        <li>Неуверенность в себе, низкая самооценка.</li>
+                    </ul>
+                </div>
+                <div class="grid-item">
+                    <img src="matrix_life.png" alt="Жизнь и реализация" class="emotions-img">
+                    <h3>Жизнь и реализация</h3>
+                    <ul>
+                        <li>Повторяющиеся жизненные сценарии (одни и те же ошибки).</li>
+                        <li>Вопросы самореализации и поиск истинного предназначения.</li>
+                        <li>Принятие сложных, судьбоносных решений.</li>
+                        <li>Переживание разводов, предательства, измен.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <p style="margin-top: 20px;">Я работаю с подсознанием через глубокую диагностику. Мы находим внутренние блоки, ограничивающие убеждения и психосоматические причины ваших проблем. Моя цель — не просто дать совет, а через систему практик избавить вас от того, что годами тормозило ваше развитие.</p>
         </div>
     </div>
-    
-    <p style="margin-top: 20px;">Я работаю с подсознанием через глубокую диагностику. Мы находим внутренние блоки, ограничивающие убеждения и психосоматические причины ваших проблем. Моя цель — не просто дать совет, а через систему практик избавить вас от того, что годами тормозило ваше развитие.</p>
-</div>
-            <div class="section">
-    <h2>Ваш путь к ясности</h2>
-    <p>
-        Детальный анализ вашей личности — от разбора Числа Сознания и Числа Действия до полной матрицы — будет оформлен в персональный разбор в формате PDF. 
-        Дополнят его практики для самостоятельной работы над мышлением. 
-        Это ваш личный навигатор для трансформации, с которым вы работаете в своем ритме, постепенно раскрывая свой потенциал.
-    </p>
-</div>
-                    <div class="section" id="calendar" style="border-left: 5px solid #ffd700;">
-            <h2 style="color: #ffd700;">Календарь Успеха: ваш личный навигатор</h2>
-            <p>Продукт, который переводит вашу жизнь из режима «случайностей» в режим точного планирования.</p>
-            
-            <div style="background: #1a253f; padding: 20px; border-radius: 15px; margin: 20px 0;">
-                <p><strong>Как это работает?</strong> В календарь зашита ваша персональная матрица по дате рождения. Он автоматически анализирует каждый ваш день и дает рекомендации:</p>
-                <ul style="padding-left: 20px;">
-                    <li><strong>Бизнес и контракты:</strong> Выбирайте дни с максимальной энергией для сделок, чтобы результат был предсказуемо высоким.</li>
-                    <li><strong>Отношения и свидания:</strong> Знайте, когда благоприятно открываться новому, а когда лучше уделить время себе.</li>
-                    <li><strong>Управление событиями:</strong> Вносите свои планы — и календарь подскажет, какие дни принесут удачу, а в какие лучше проявить осторожность.</li>
-                </ul>
-            </div>
-        Внутри вы найдете все необходимые инструменты для глубокого анализа и управления событиями жизни — это ваш персональный PDF-календарь на каждый день.
-    </p>
-            
-            <a href="https://wa.me/34614339937" class="btn" style="background: #ffd700; color: #000;">ЗАКАЗАТЬ КАЛЕНДАРЬ</a>
-        </div>
-                </ul>
 
-            <div class="section" id="reviews">
-            <h2>Отзывы</h2>
-            
-            <div style="display: flex; flex-direction: column; gap: 20px;">
-                <div style="background: #171f33; padding: 20px; border-radius: 15px; border-left: 4px solid #00f2fe;">
+    <div class="section">
+        <h2>Ваш путь к ясности</h2>
+        <p>
+            Детальный анализ вашей личности — от разбора Числа Сознания и Числа Действия до полной матрицы — будет оформлен в персональный разбор в формате PDF. 
+            Дополнят его практики для самостоятельной работы над мышлением. 
+            Это ваш личный навигатор для трансформации, с которым вы работаете в своем ритме, постепенно раскрывая свой потенциал.
+        </p>
+    </div>
+
+    <div class="section" id="calendar" style="border-left: 5px solid #ffd700;">
+        <h2 style="color: #ffd700;">Календарь Успеха: ваш личный навигатор</h2>
+        <p>Продукт, который переводит вашу жизнь из режима «случайностей» в режим точного планирования.</p>
+        
+        <img src="matrix_calendar.png" alt="Календарь Успеха Сюцай" class="img-calendar">
+        
+        <div style="background: #1a253f; padding: 20px; border-radius: 15px; margin: 20px 0;">
+            <p><strong>Как это работает?</strong> В календарь зашита ваша персональная матрица по дате рождения. Он автоматически анализирует каждый ваш день и дает рекомендации:</p>
+            <ul style="padding-left: 20px;">
+                <li><strong>Бизнес и контракты:</strong> Выбирайте дни с максимальной энергией для сделок, чтобы результат был предсказуемо высоким.</li>
+                <li><strong>Отношения и свидания:</strong> Знайте, когда благоприятно открываться новому, а когда лучше уделить время себе.</li>
+                <li><strong>Управление событиями:</strong> Вносите свои планы — и календарь подскажет, какие дни принесут удачу, а в какие лучше проявить осторожность.</li>
+            </ul>
+        </div>
+        <p>
+            Внутри вы найдете все необходимые инструменты для глубокого анализа и управления событиями жизни — это ваш персональный PDF-календарь на каждый день.
+        </p>
+        
+        <a href="https://wa.me/34614339937" class="btn" style="background: #ffd700; color: #000;">ЗАКАЗАТЬ КАЛЕНДАРЬ</a>
+    </div>
+
+    <div class="section" id="reviews">
+        <h2>Отзывы</h2>
+        
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+            <div class="grid-item" style="display: flex; align-items: flex-start; border-left: 4px solid #00f2fe;">
+                <div class="reviewer-icon"></div>
+                <div>
                     <p style="margin: 0; font-style: italic;">«К Людмиле я пришла в состоянии полного развода. Когда она разложила Вектор Эго моего мужа, у меня шок был! Я перестала требовать от него невозможного, и в семье наступил такой покой, какого не было со дня свадьбы. Спасибо за сохраненную семью!»</p>
                     <p style="margin: 10px 0 0 0; color: #00f2fe; font-weight: bold;">— Елена, 38 лет</p>
                 </div>
+            </div>
 
-                <div style="background: #171f33; padding: 20px; border-radius: 15px; border-left: 4px solid #00f2fe;">
+            <div class="grid-item" style="display: flex; align-items: flex-start; border-left: 4px solid #00f2fe;">
+                <div class="reviewer-icon"></div>
+                <div>
                     <p style="margin: 0; font-style: italic;">«Думал, цифры — ерунда. Пошел, потому что бизнес встал, долги росли. Людмила объяснила конфликт моего Числа Сознания и Миссии, дала карту действий. Прошло 4 месяца — бизнес пошел в гору, закрыл два крупных долга. Метод работает железно».</p>
                     <p style="margin: 10px 0 0 0; color: #00f2fe; font-weight: bold;">— Михаил, 44 года</p>
                 </div>
+            </div>
 
-                <div style="background: #171f33; padding: 20px; border-radius: 15px; border-left: 4px solid #00f2fe;">
+            <div class="grid-item" style="display: flex; align-items: flex-start; border-left: 4px solid #00f2fe;">
+                <div class="reviewer-icon"></div>
+                <div>
                     <p style="margin: 0; font-style: italic;">«Получила огромный цифровой паспорт ручной работы — перечитываю как навигатор. Я поняла, почему постоянно сливала деньги. "Доработала" недостающие энергии, доход вырос в два раза, ушла тревога».</p>
                     <p style="margin: 10px 0 0 0; color: #00f2fe; font-weight: bold;">— Ольга, 29 лет</p>
                 </div>
+            </div>
 
-                <div style="background: #171f33; padding: 20px; border-radius: 15px; border-left: 4px solid #00f2fe;">
+            <div class="grid-item" style="display: flex; align-items: flex-start; border-left: 4px solid #00f2fe;">
+                <div class="reviewer-icon"></div>
+                <div>
                     <p style="margin: 0; font-style: italic;">«Мы были на грани краха. Людмила показала, как наши иллюзии сталкиваются лбами. Мы как будто заново познакомились через эти цифры. Конфликты прекратились, появилось тотальное уважение к природе партнера».</p>
                     <p style="margin: 10px 0 0 0; color: #00f2fe; font-weight: bold;">— Игорь и Наталья</p>
                 </div>
+            </div>
 
-                <div style="background: #171f33; padding: 20px; border-radius: 15px; border-left: 4px solid #00f2fe;">
+            <div class="grid-item" style="display: flex; align-items: flex-start; border-left: 4px solid #00f2fe;">
+                <div class="reviewer-icon"></div>
+                <div>
                     <p style="margin: 0; font-style: italic;">«После 35 лет проблемы со здоровьем, врачи не находили причин. Людмила увидела слив энергии из-за Вектора Эго, дала рекомендации по дисциплине ума. Стала делать — силы вернулись, анализы в норме. Мастер от Бога!»</p>
                     <p style="margin: 10px 0 0 0; color: #00f2fe; font-weight: bold;">— Татьяна, 41 год</p>
                 </div>
+            </div>
 
-                <div style="background: #171f33; padding: 20px; border-radius: 15px; border-left: 4px solid #00f2fe;">
+            <div class="grid-item" style="display: flex; align-items: flex-start; border-left: 4px solid #00f2fe;">
+                <div class="reviewer-icon"></div>
+                <div>
                     <p style="margin: 0; font-style: italic;">«Я прагматик, верю фактам. Людмила разложила мой характер так, будто знает меня всю жизнь. Принимаю решения, опираясь на цифровой паспорт. Результаты супер, хаос из головы ушел».</p>
                     <p style="margin: 10px 0 0 0; color: #00f2fe; font-weight: bold;">— Дмитрий, 35 лет</p>
                 </div>
+            </div>
 
-                <div style="background: #171f33; padding: 20px; border-radius: 15px; border-left: 4px solid #00f2fe;">
+            <div class="grid-item" style="display: flex; align-items: flex-start; border-left: 4px solid #00f2fe;">
+                <div class="reviewer-icon"></div>
+                <div>
                     <p style="margin: 0; font-style: italic;">«Людмила помогла наладить отношения с дочерью. Оказалось, я душила ее контролем, противоречащим ее дате рождения. Изменила поведение — и дочь сама потянулась ко мне. Это чудо».</p>
                     <p style="margin: 10px 0 0 0; color: #00f2fe; font-weight: bold;">— Марина, 47 лет</p>
                 </div>
+            </div>
 
-                <div style="background: #171f33; padding: 20px; border-radius: 15px; border-left: 4px solid #00f2fe;">
+            <div class="grid-item" style="display: flex; align-items: flex-start; border-left: 4px solid #00f2fe;">
+                <div class="reviewer-icon"></div>
+                <div>
                     <p style="margin: 0; font-style: italic;">«Был в глубоком кризисе. Людмила расшифровала мой код судьбы, я четко увидел свое предназначение и сферы для финансового взлета. На душе стало спокойно и ясно. Спасибо за эту точнейшую аналитику!»</p>
                     <p style="margin: 10px 0 0 0; color: #00f2fe; font-weight: bold;">— Артур, 31 год</p>
                 </div>
+            </div>
 
-                <div style="background: #171f33; padding: 20px; border-radius: 15px; border-left: 4px solid #00f2fe;">
+            <div class="grid-item" style="display: flex; align-items: flex-start; border-left: 4px solid #00f2fe;">
+                <div class="reviewer-icon"></div>
+                <div>
                     <p style="margin: 0; font-style: italic;">«Жалею только о том, что не встретила Людмилу 10 лет назад. Разбор матрицы разложил по полочкам всю мою прошлую жизнь. Сейчас я четко знаю свои действия на будущее. Ум спокоен, жизнь прекрасна!»</p>
                     <p style="margin: 10px 0 0 0; color: #00f2fe; font-weight: bold;">— Светлана, 52 года</p>
                 </div>
             </div>
         </div>
-
-                <a href="https://wa.me/34614339937" class="btn" style="background: #ffd700;">Запись на Консультацию</a>
     </div>
+
+    <a href="https://wa.me/34614339937" class="btn" style="background: #ffd700; color: #000;">Запись на Консультацию</a>
+</div>
 
 </body>
 </html>
