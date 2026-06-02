@@ -58,12 +58,25 @@
         font-weight: bold;
     }
 
-    .nav-bar {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        margin: 15px auto;
-    }
+    .nav-bar { 
+    display: flex; 
+    justify-content: center; 
+    gap: 10px; 
+    padding: 10px; 
+    background: rgba(23, 31, 51, 0.95); /* Чуть прозрачный фон */
+    border-bottom: 1px solid #334155;
+    position: fixed; /* Панель "прилипает" к верху */
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    z-index: 1000; /* Чтобы кнопки были поверх всего текста */
+    box-sizing: border-box;
+}
+
+/* Добавьте отступ сверху для основного контента, чтобы он не заезжал под кнопки */
+body {
+    padding-top: 80px; 
+}
 </style>
 </head>
 <body>
