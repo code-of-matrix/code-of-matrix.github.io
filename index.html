@@ -58,19 +58,19 @@
         font-weight: bold;
     }
 
-    .nav-bar { 
-    display: flex; 
-    justify-content: center; 
-    gap: 10px; 
-    padding: 10px; 
-    background: rgba(23, 31, 51, 0.95); /* Чуть прозрачный фон */
-    border-bottom: 1px solid #334155;
-    position: fixed; /* Панель "прилипает" к верху */
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    z-index: 1000; /* Чтобы кнопки были поверх всего текста */
-    box-sizing: border-box;
+    .nav-item { 
+    background: #ffd700;        /* Золотой цвет как у кнопки */
+    color: #000;                /* Черный текст как у кнопки */
+    padding: 10px 15px;         /* Внутренние отступы */
+    border-radius: 50px;        /* Закругление */
+    text-decoration: none;      /* Убираем подчеркивание */
+    font-weight: bold;          /* Жирный шрифт */
+    font-size: 0.9rem;          /* Размер шрифта */
+    transition: 0.3s;
+}
+
+.nav-item:hover {
+    background: #e6c200;        /* Чуть темнее при наведении */
 }
 
 /* Добавьте отступ сверху для основного контента, чтобы он не заезжал под кнопки */
