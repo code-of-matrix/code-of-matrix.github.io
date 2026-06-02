@@ -58,26 +58,40 @@
         font-weight: bold;
     }
 
-    .nav-item { 
-    background: #ffd700;        /* Золотой цвет как у кнопки */
-    color: #000;                /* Черный текст как у кнопки */
-    padding: 10px 15px;         /* Внутренние отступы */
-    border-radius: 50px;        /* Закругление */
-    text-decoration: none;      /* Убираем подчеркивание */
-    font-weight: bold;          /* Жирный шрифт */
-    font-size: 0.9rem;          /* Размер шрифта */
-    transition: 0.3s;
+   /* Настройка панели */
+.nav-bar { 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 60px; /* Сделаем чуть компактнее для мобильных */
+    background: #070b12; /* Цвет фона */
+    display: flex; 
+    justify-content: center; /* Кнопки всегда в центре */
+    align-items: center; 
+    gap: 10px; /* Расстояние между кнопками */
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
 
-.nav-item:hover {
-    background: #e6c200;        /* Чуть темнее при наведении */
+/* Настройка кнопок для любого экрана */
+.nav-item { 
+    background: #ffd700; 
+    color: #000; 
+    padding: 8px 15px; 
+    border-radius: 20px; 
+    text-decoration: none; 
+    font-weight: bold; 
+    font-size: 12px; /* Чуть меньше размер, чтобы не вылезали за экран */
+    white-space: nowrap; /* Запрещает тексту кнопок переноситься на новую строку */
 }
 
-/* Добавьте отступ сверху для основного контента, чтобы он не заезжал под кнопки */
+/* Отступ контента, чтобы он не заезжал под панель */
 body {
-    padding-top: 80px; 
+    padding-top: 70px; 
 }
-</style>
+
+   </style>
 </head>
 <body>
     <div class="nav-bar">
